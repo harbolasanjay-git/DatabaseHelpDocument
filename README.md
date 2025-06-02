@@ -1,9 +1,9 @@
 1.	 Overall, 5 different regions and different servers:
-1.	US
-2.	CA
-3.	UK
-4.	CN
-5.	MX
+    1.	US
+    2.	CA
+    3.	UK
+    4.	CN
+    5.	MX
 
 2.	US has two servers, the same as CA with replication to build connections.
 
@@ -23,21 +23,21 @@
 
 7.	HYVE US PRODUK PROD/HYCN PROD/MX PROD are 4 independent servers for 4 different regions.
 
-a.	XD PROD is for xerox company.
-b.	They 5 don't have severs to be separated to 2 servers like US and CA. They only have 1 serunt named PROD
-c.	 But PROD still has both OLAP and OLTP processes.
-d.	 In PROD, OLTP also uses replication to build connection with OLAP.
-e.	You can understand that OLAP & OLTP (CORP and DWS) are in the same server named PROD.
+      a.	XD PROD is for xerox company.
+      b.	They 5 don't have severs to be separated to 2 servers like US and CA. They only have 1 serunt named PROD
+      c.	 But PROD still has both OLAP and OLTP processes.
+      d.	 In PROD, OLTP also uses replication to build connection with OLAP.
+      e.	You can understand that OLAP & OLTP (CORP and DWS) are in the same server named PROD.
 
 
 
 
 US CORP
-1.	CORP is OLTP (Online Transaction Process).
-
-2.	CIS:
-a.	CIS is read-only for DWS.
-b.	CIS for CORP is from kind of business support system, which is not read only.
+    1.	CORP is OLTP (Online Transaction Process).
+    
+    2.	CIS:
+          a.	CIS is read-only for DWS.
+          b.	CIS for CORP is from kind of business support system, which is not read only.
 
 3.	HIS is archive for CIS.
 
@@ -46,13 +46,13 @@ b.	CIS for CORP is from kind of business support system, which is not read only.
 5.	We have the other temporary database named tempah. The difference is that tables in tempdb will lose data or be dropped when server restarts.
 
 Replication frequency
-1.	Real time for CIS.
-2.	Weekly for HIS.
+      1.	Real time for CIS.
+      2.	Weekly for HIS.
 
 US DWS
-1.	DWS is OLAP
-2.	CIS for DWS is read-only.
-3.	DW_PROD
+    1.	DWS is OLAP
+    2.	CIS for DWS is read-only.
+    3.	DW_PROD
 
 a.	DW_PROD is its unique database.
 b.	Data in DW_PROD is based on data of CIS through CRON (stored procedures and shell scripts)
